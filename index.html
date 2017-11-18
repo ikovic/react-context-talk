@@ -29,11 +29,166 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>Safe Use of Context</h1>
-				<h3>Ivan Kovic, SeekandHit</h3>
+				<section>
+					<h1>Safe Use of Context</h1>
+					<h6 class="txtRight">Ivan Kovic, SeekandHit</h6>
+				</section>
+				<section>
+					<ul>
+						<li>
+							<strong>IT Sistemi</strong>
+							<ul>
+								<li>MoRe - Java, MySQL</li>
+							</ul>
+						</li>
+						<li>
+							<strong>ExtensionEngine</strong>
+							<ul>
+								<li>BoardOnTrack - jQuery, Grails, MySQL</li>
+								<li>MIT CRE - React, Django, Mongo, Postgre</li>
+							</ul>
+						</li>
+						<li>
+							<strong>SeekandHit</strong>
+							<ul>
+								<li>Kiwi.com - React, Node.js, Postgre</li>
+								<li>Internal tools - React</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
 			</section>
-			<section>Safe Use of Context</section>
-			<section>Slide 2</section>
+			<section>
+				<h2>What is Context? Where Can I Use It?</h2>
+				<ul>
+					<li>
+						<strong>Data Flow in React</strong>
+						<ul>
+							<li>Local state in components</li>
+							<li>Props passed from parent to children</li>
+						</ul>
+						<li>
+							<strong>Context</strong>
+						</li>
+						<ul>
+							<li>All components can access it</li>
+							<li>Avoid unwanted renders</li>
+							<li>Child to (grand)parent communication</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Why Not to Use Context</h2>
+				<div class="columns">
+					<ul>
+						<li>
+							<strong>Experimental API</strong>
+							<ul>
+								<li>Likely to break in future releases</li>
+							</ul>
+							<li>
+								<strong>Fundamentally broken API</strong>
+							</li>
+							<ul>
+								<li>Naming collisions</li>
+								<li>Lack of control over rendering</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="imageWrapper">
+						<img class="image" src="images/react_1.png" alt="React 1">
+						<img class="image" src="images/react_2.png" alt="React 1">
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>How to Use It Then?</h2>
+				<ul>
+					<li>
+						<strong>API changes</strong>
+						<ul>
+							<li>Reduce the area of use</li>
+							<li>Allow only a minimal number of components to use context in a structured way</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Lack of control over updates</strong>
+						<ul>
+							<li>
+								Never change context value
+							</li>
+							<li>
+								Use it as a dependency injection system
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Buzzwords to the Rescue!</h2>
+				<ul>
+					<li>
+						<strong>Provider</strong>
+						<ul>
+							<li>Must be a
+								<strong>Singleton</strong>
+							</li>
+							<li>Adds observers to context in a structured way</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Observer</strong>
+						<ul>
+							<li>
+								Notifies when a change in state occurs
+							</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Higher Order Component (HOC)</strong>
+						<ul>
+							<li>
+								Subscribes to context changes
+							</li>
+							<li>When notified, passes new props to the decorated Component</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Case Study: Rendering Based on Screen Size</h3>
+				<ul>
+					<li>Use different components for different screen sizes</li>
+					<li>Naive solution
+						<ul>
+							<li>Add a new
+								<pre class="inline"><code>resize</code></pre> event listener on
+								<pre class="inline"><code>componentDidMount</code></pre> in each component</li>
+							<li>Listener code duplicated in all components</li>
+						</ul>
+					</li>
+					<li>Better solution
+						<ul>
+							<li>Put the listener logic in a HOC</li>
+							<li>Still one event listener per component, but no code duplication</li>
+						</ul>
+					</li>
+					<li>Best solution
+						<ul>
+							<li>Use Provider to register a single event listener, notify the components via HOCs</li>
+							<li>Only one attached event listener</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Conclusion</h2>
+				<div class="imageWrapper centered">
+					<img src="images/abramov.jpg" alt="abramov">
+				</div>
+				<p>Dan Abramov on using context @twitter</p>
+			</section>
 		</div>
 	</div>
 

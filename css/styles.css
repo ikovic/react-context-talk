@@ -4,3 +4,33 @@ body {
   background-repeat: no-repeat;
   background-position: 2% 3%;
 }
+
+.txtLeft {
+  text-align: left;
+}
+
+.txtRight {
+  text-align: right;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.imageWrapper {
+  width: 60%;
+}
+
+.centered {
+  margin: auto !important;
+}
+
+.reveal pre.inline {
+  display: inline;
+}
+
+.reveal pre.inline code {
+  display: inline;
+}
