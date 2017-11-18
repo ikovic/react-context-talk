@@ -1,6 +1,8 @@
 ## Safe Use of Context
 A short talk given on Split.JS meetup in Split, November 23, 2017.
 
+### Abstract
+
 Context API is one part of React that is usually avoided by developers.
 That is understandable since the whole of the Internet suggests against using it.
 Even the official React docs make you want to avoid the context API.
