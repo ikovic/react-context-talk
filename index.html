@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="css/theme/black.css">
 	<link rel="stylesheet" href="css/styles.css">
 
+	<link rel="icon" href="images/favicon.ico">
+
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -59,48 +61,70 @@
 				</section>
 			</section>
 			<section>
-				<h2>What is Context? Where Can I Use It?</h2>
-				<ul>
-					<li>
-						<strong>Data Flow in React</strong>
-						<ul>
-							<li>Local state in components</li>
-							<li>Props passed from parent to children</li>
-						</ul>
-						<li>
-							<strong>Context</strong>
-						</li>
-						<ul>
-							<li>All components can access it</li>
-							<li>Avoid unwanted renders</li>
-							<li>Child to (grand)parent communication</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Why Not to Use Context</h2>
-				<div class="columns">
+				<section>
+					<h2>What is Context? Where Can I Use It?</h2>
 					<ul>
 						<li>
-							<strong>Experimental API</strong>
+							<strong>Data Flow in React</strong>
 							<ul>
-								<li>Likely to break in future releases</li>
+								<li>Local state in components</li>
+								<li>Props passed from parent to children</li>
 							</ul>
 							<li>
-								<strong>Fundamentally broken API</strong>
+								<strong>Context</strong>
 							</li>
 							<ul>
-								<li>Naming collisions</li>
-								<li>Lack of control over rendering</li>
+								<li>All components can access it</li>
+								<li>Avoid unwanted renders</li>
+								<li>Child to (grand)parent communication</li>
 							</ul>
 						</li>
 					</ul>
-					<div class="imageWrapper">
-						<img class="image" src="images/react_1.png" alt="React 1">
-						<img class="image" src="images/react_2.png" alt="React 1">
+				</section>
+				<section>
+					<ul>
+						<li>
+							<a href="https://codesandbox.io/s/2v9y753lor" target="blank">Data Flow Without Context</a>
+						</li>
+						<li>
+							<a href="https://codesandbox.io/s/8zw87qjyv0" target="blank">Data Flow With Context</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Why Not to Use Context</h2>
+					<div class="columns">
+						<ul>
+							<li>
+								<strong>Experimental API</strong>
+								<ul>
+									<li>Likely to break in future releases</li>
+								</ul>
+								<li>
+									<strong>Fundamentally broken API</strong>
+								</li>
+								<ul>
+									<li>Naming collisions</li>
+									<li>Lack of control over rendering</li>
+								</ul>
+							</li>
+						</ul>
+						<div class="imageWrapper">
+							<img class="image" src="images/react_1.png" alt="React 1">
+							<img class="image" src="images/react_2.png" alt="React 1">
+						</div>
 					</div>
-				</div>
+				</section>
+				<section>
+					<ul>
+						<li>
+							<a href="https://codesandbox.io/s/mqrq9r90qx" target="blank">Context won't update</a>
+						</li>
+					</ul>
+				</section>
+
 			</section>
 			<section>
 				<h2>How to Use It Then?</h2>
