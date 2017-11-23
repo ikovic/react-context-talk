@@ -38,20 +38,20 @@
 				<section>
 					<ul>
 						<li>
-							<strong>IT Sistemi</strong>
+							<strong class="highlight">IT Sistemi</strong>
 							<ul>
 								<li>MoRe - Java, MySQL</li>
 							</ul>
 						</li>
 						<li>
-							<strong>ExtensionEngine</strong>
+							<strong class="highlight">ExtensionEngine</strong>
 							<ul>
 								<li>BoardOnTrack - jQuery, Grails, MySQL</li>
 								<li>MIT CRE - React, Django, Mongo, Postgre</li>
 							</ul>
 						</li>
 						<li>
-							<strong>SeekandHit</strong>
+							<strong class="highlight">SeekandHit</strong>
 							<ul>
 								<li>Kiwi.com - React, Node.js, Postgre</li>
 								<li>Internal tools - React</li>
@@ -65,13 +65,13 @@
 					<h2>What is Context? Where Can I Use It?</h2>
 					<ul>
 						<li>
-							<strong>Data Flow in React</strong>
+							<strong class="highlight">Data Flow in React</strong>
 							<ul>
 								<li>Local state in components</li>
 								<li>Props passed from parent to children</li>
 							</ul>
 							<li>
-								<strong>Context</strong>
+								<strong class="highlight">Context</strong>
 							</li>
 							<ul>
 								<li>All components can access it</li>
@@ -82,6 +82,7 @@
 					</ul>
 				</section>
 				<section>
+					<h3>Examples</h3>
 					<ul>
 						<li>
 							<a href="https://codesandbox.io/s/2v9y753lor" target="blank">Data Flow Without Context</a>
@@ -98,12 +99,12 @@
 					<div class="columns">
 						<ul>
 							<li>
-								<strong>Experimental API</strong>
+								<strong class="highlight">Experimental API</strong>
 								<ul>
 									<li>Likely to break in future releases</li>
 								</ul>
 								<li>
-									<strong>Fundamentally broken API</strong>
+									<strong class="highlight">Fundamentally broken API</strong>
 								</li>
 								<ul>
 									<li>Naming collisions</li>
@@ -118,6 +119,7 @@
 					</div>
 				</section>
 				<section>
+					<h3>Example</h3>
 					<ul>
 						<li>
 							<a href="https://codesandbox.io/s/mqrq9r90qx" target="blank">Context won't update</a>
@@ -130,14 +132,14 @@
 				<h2>How to Use It Then?</h2>
 				<ul>
 					<li>
-						<strong>API changes</strong>
+						<strong class="highlight">API changes</strong>
 						<ul>
 							<li>Reduce the area of use</li>
 							<li>Allow only a minimal number of components to use context in a structured way</li>
 						</ul>
 					</li>
 					<li>
-						<strong>Lack of control over updates</strong>
+						<strong class="highlight">Lack of control over updates</strong>
 						<ul>
 							<li>
 								Never change context value
@@ -153,7 +155,7 @@
 				<h2>Buzzwords to the Rescue!</h2>
 				<ul>
 					<li>
-						<strong>Provider</strong>
+						<strong class="highlight">Provider</strong>
 						<ul>
 							<li>Must be a
 								<strong>Singleton</strong>
@@ -162,7 +164,7 @@
 						</ul>
 					</li>
 					<li>
-						<strong>Observer</strong>
+						<strong class="highlight">Observer</strong>
 						<ul>
 							<li>
 								Notifies when a change in state occurs
@@ -170,7 +172,7 @@
 						</ul>
 					</li>
 					<li>
-						<strong>Higher Order Component (HOC)</strong>
+						<strong class="highlight">Higher Order Component (HOC)</strong>
 						<ul>
 							<li>
 								Subscribes to context changes
@@ -181,30 +183,43 @@
 				</ul>
 			</section>
 			<section>
-				<h3>Case Study: Rendering Based on Screen Size</h3>
-				<ul>
-					<li>Use different components for different screen sizes</li>
-					<li>Naive solution
-						<ul>
-							<li>Add a new
-								<pre class="inline"><code>resize</code></pre> event listener on
-								<pre class="inline"><code>componentDidMount</code></pre> in each component</li>
-							<li>Listener code duplicated in all components</li>
-						</ul>
-					</li>
-					<li>Better solution
-						<ul>
-							<li>Put the listener logic in a HOC</li>
-							<li>Still one event listener per component, but no code duplication</li>
-						</ul>
-					</li>
-					<li>Best solution
-						<ul>
-							<li>Use Provider to register a single event listener, notify the components via HOCs</li>
-							<li>Only one attached event listener</li>
-						</ul>
-					</li>
-				</ul>
+				<section>
+					<h3>Case Study: Rendering Based on Screen Size</h3>
+					<ul class="spacedList">
+						<li>Show different components for different screen sizes</li>
+						<li>Should be done with CSS if possible</li>
+						<li>
+							<span class="error">Problem</span> with JS approach: what happens if you resize the browser?
+						</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li>
+							<span class="error">Naive solution</span>
+							<ul>
+								<li>Add a new
+									<pre class="inline"><code>resize</code></pre> event listener on
+									<pre class="inline"><code>componentDidMount</code></pre> in each component</li>
+								<li>Listener code duplicated in all components</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							<span class="warning">Better solution</span>
+							<ul>
+								<li>Put the listener logic in a HOC</li>
+								<li>Still one event listener per component, but no code duplication</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							<span class="success">Best solution?</span>
+							<ul>
+								<li>Use Provider to register a single event listener, notify the components via HOCs</li>
+								<li>Only one attached event listener</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section>
 				<h2>Conclusion</h2>
@@ -230,6 +245,7 @@
 				{ src: 'plugin/markdown/marked.js' },
 				{ src: 'plugin/markdown/markdown.js' },
 				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
 				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
 			]
 		});
